@@ -1,0 +1,21 @@
+from gooey import Gooey, GooeyParser
+
+
+@Gooey(dump_build_config=True, program_name="Widget Demo")
+def main():
+    desc = "Example application to show Gooey's various widgets"
+    file_help_msg = "Name of the file you want to process"
+    my_cool_parser = GooeyParser(description=desc)
+    verbosity = my_cool_parser.add_mutually_exclusive_group(required=False)
+    verbosity.add_argument('-t', '--verbozze', dest='verbose',
+                           action="store_true", help="Show more details")
+    verbosity.add_argument('-q', '--quiet', dest='quiet',
+                           action="store_true", help="Only output on error")
+
+    my_cool_parser.parse_args()
+    print("Hey")
+
+def here_is_more():
+    pass
+if __name__ == '__main__':
+    main()

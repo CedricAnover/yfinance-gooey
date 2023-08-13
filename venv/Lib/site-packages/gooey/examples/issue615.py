@@ -1,0 +1,34 @@
+from gooey import Gooey, GooeyParser, options
+from argparse import ArgumentParser
+
+def some_function(id_, len_):
+    print(id_)
+    print(len_)
+    return
+
+@Gooey(program_name = "Machine Learning Pipeline - Spatial Proximity Check",
+       required_cols = 2,
+       tabbed_groups=True)
+def main_spatial_proximity_gui():
+    parser = GooeyParser(description = "Machine Learning Pipeline - Base Data Input")
+    parser.add_argument(
+        '--pipeline_dataset',
+        metavar = 'Pipeline Dataset (csv)',
+        choices=['a', 'b', 'c'],
+        widget = 'FilterableDropdown',
+        gooey_options=options.TextField(
+            initial_value='Helllloooo'
+        )
+    )
+    parser.add_argument(
+        '--version',
+        action='version',
+        version='%(prog)s 2.0'
+    )
+    args = parser.parse_args()
+    print(args)
+
+
+
+
+main_spatial_proximity_gui()

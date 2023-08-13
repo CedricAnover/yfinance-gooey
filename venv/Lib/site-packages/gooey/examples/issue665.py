@@ -1,0 +1,25 @@
+import os
+from gooey import Gooey, GooeyParser
+
+
+@Gooey(
+    richtext_controls=True,
+    program_name="图片爬虫工具",
+    encoding="utf-8",
+)
+def main():
+
+
+    settings_msg = '三大搜索引擎爬虫图像-谷歌暂不支持！'
+    parser = GooeyParser(description=settings_msg)
+
+    parser.add_argument("search_engine", metavar='请选择搜索引擎', help="BaiDu, Google, Bing",
+                    choices=["百度图片", "Bing图片"], default="百度图片")
+    parser.add_argument("save_root", metavar='设置保存路径', help="在选择路径下，自动新建多个文件夹保存图像", widget="DirChooser")
+    parser.add_argument("img_num", metavar='输入下载数量', help="请输入1个数字", widget="TextField", default=10)
+    parser.add_argument("key", metavar='请输入1个关键字', help="请输入关键字", widget="TextField", default="中国")
+
+    args = parser.parse_args()
+    args.img_num = int(args.img_num)
+
+main()

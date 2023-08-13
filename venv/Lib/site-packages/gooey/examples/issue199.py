@@ -1,0 +1,16 @@
+from argparse import ArgumentParser
+from gooey import Gooey
+
+
+@Gooey
+def main_argparse():
+    parser = ArgumentParser(description='Sum two integers.')
+    parser.add_argument('integers', type=int, nargs=2, metavar=('first', 'second'))
+
+    args = parser.parse_args()
+    sum(args.integers)
+
+
+if __name__ == "__main__":
+    # main_argparse()
+    main_argparse()

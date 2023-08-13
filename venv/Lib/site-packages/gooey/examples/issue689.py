@@ -1,0 +1,20 @@
+from gooey import Gooey, GooeyParser
+
+@Gooey(terminal_font_family='consolas')
+def main():
+    parser = GooeyParser()
+    # parser.add_argument('-default-text-area', widget="Textarea")
+    # parser.add_argument('-large-text-area', widget="Textarea", gooey_options={"height": 180, "full_width": True})
+    parser.parser.parse_args()
+    print("""
+  /\_____\    
+ _\ \__/_/_   
+/\_\ \_____\  
+\ \ \/ / / /  
+ \ \/ /\/ /   
+  \/_/\/_/    
+    """)
+
+
+if __name__ == "__main__":
+    main()
